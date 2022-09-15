@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  h1{
+    font-size: 30px;
+    width: fit-content;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .grid-container {
+    width: 98%;
+    margin: auto;
+    display: grid;
+    grid-auto-rows: 25rem;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 5px;
+    row-gap: 100px;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    }
+  }
+  .grid-item {
+    width: fit-content;
+    border: 3px solid black;
+    display: block;
+  }
+  
+  .grid-item img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+    justify-content: center;
+  }
+  .carrito{
+    margin-top: 110px;
+  }
+  .carritoItem{
+    margin: 10px;
+  }
