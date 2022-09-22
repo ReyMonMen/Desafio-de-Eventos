@@ -1,8 +1,8 @@
 
-const carritoArray = [];
+let carritoArray = [];
 let index = 0;
+let carritoContenedor = document.getElementById("carrito-contenedor");
 function agregaCarrito(itemId) {
-    let carritoContenedor = document.getElementById("carrito-contenedor");
     let boole = 0;
     const guardaCarrito = () => { 
         const item = productos.find(item => item.id == itemId);
@@ -54,7 +54,7 @@ function agregaCarrito(itemId) {
             
             // console.log(carritoArray);        
 
-            localStorage.setItem("productos", JSON.stringify(carritoArray));
+            localStorage.setItem('productos', JSON.stringify(carritoArray));
             alert(`se elimino el producto ${item.producto} del carrito`);
         })
         
@@ -64,6 +64,6 @@ function agregaCarrito(itemId) {
 
 
     guardaCarrito();
-    localStorage.setItem("productos", JSON.stringify(carritoArray));
+    localStorage.setItem('productos', JSON.stringify(carritoArray));
 
 }
