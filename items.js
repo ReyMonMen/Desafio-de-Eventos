@@ -6,7 +6,7 @@ const productos = [
         img: '/media/comoda.jpg',
         descripcion: "Comoda de Madera y Paraiso",
         stock: 5,
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const productos = [
         img: '/media/mesasRatonas.jpg',
         descripcion: "Mesas Ratonas Madera y Hierro",
         stock: 10,
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const productos = [
         img: '/media/MesaQuincho2.jpg',
         descripcion: "Mesa de Quincho con vigas",
         stock: 5,
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ const productos = [
         img: '/media/mesaBinaria.jpg',
         descripcion: "Mesa Comedor blanco y paraiso",
         stock: 8,
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 5,
@@ -42,7 +42,7 @@ const productos = [
         img: '/media/LivingExterior2.jpg',
         descripcion: "Living exterior hierro oxidado",
         stock: 2,
-        cantidad: 0
+        cantidad: 1
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ const productos = [
         img: '/media/RackTV.jpg',
         descripcion: "Rack de TV en blanco paraiso y hierro",
         stock: 3,
-        cantidad: 0
+        cantidad: 1
     }
     
     
