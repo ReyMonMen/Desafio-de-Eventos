@@ -9,13 +9,12 @@ function agregaCarrito(itemId) {
         carritoArray.forEach(object => {
             if(object.id == itemId){ 
                 boole = 1;
-                // alert('no pusheo al array porque el elemento ya existe');
                 carritoArray.forEach(object =>{
                     if (object.id === itemId){
                         let aux1 = parseInt(object.cantidad);
                         aux1++;
                         object.cantidad = aux1;
-                        console.log(aux1);
+                        // console.log(aux1);
                         let aux2 = document.getElementById(`cantidad${itemId}`);
                         aux2.innerHTML = `<p id="cantidad${itemId}" >Cantidad: ${aux1} </p>`;  
 
@@ -28,7 +27,6 @@ function agregaCarrito(itemId) {
         });
         if(boole == 0){
             carritoArray.push(item);
-            // alert('pusheo el elemento al array');
             const div = document.createElement("div");
             div.id = `carritoItem${item.id}`;
             div.innerHTML = `<div><p>Producto: ${item.producto}</p>
@@ -55,10 +53,11 @@ function agregaCarrito(itemId) {
               }).then((result) => {
                 if (result.isConfirmed) {
                     let eliminar = document.getElementById(`carritoItem${item.id}`);
-                    carritoContenedor.removeChild(eliminar );
+                    carritoContenedor.removeChild(eliminar);
                     const posicion = carritoArray.findIndex((element) => element.id == item.id); 
                     carritoArray.splice(posicion, 1)      
                     localStorage.setItem('productos', JSON.stringify(carritoArray));
+                    productos[item.id-1].cantidad = 1;
                   Swal.fire({
                     title: 'Eliminado',
                     text: `${item.producto} se elimino del carrito`,
@@ -67,6 +66,8 @@ function agregaCarrito(itemId) {
                     timer: 1500
                 })
                 }
+                    console.log(carritoArray);
+                    console.log(productos);
               })
             
         })

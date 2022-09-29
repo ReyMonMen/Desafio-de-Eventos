@@ -21,16 +21,15 @@ for(const item of productos){
             showConfirmButton: false,
             timer: 1500
           })
-        // alert(`se agrego el producto ${item.producto}`);
     })
     };
 
 let carritoStorage = localStorage.getItem("productos");
-console.log(carritoStorage);
+// console.log(carritoStorage);
 
 if (carritoStorage){
     carritoArray = JSON.parse(carritoStorage);
-    console.log(carritoArray);
+    // console.log(carritoArray);
 }
 
 if(carritoArray.length > 0){
