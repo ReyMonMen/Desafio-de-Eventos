@@ -43,3 +43,39 @@
   .carritoItem{
     margin: 10px;
   }
+
+  .carrito{
+    /* width: 98%; */
+    margin-left: 2%;
+  }
+
+  #carrito-contenedor{
+    width: fit-content;
+    margin-left: 2%;    
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+  }
+
+  #carrito-contenedor div{
+    display: inline;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+ 
+  .grid-container button{
+    background-color: rgb(12, 184, 12);
+    border-radius: 5px;
+    padding: 2px;
+  }
+  #carrito-contenedor button{
+    background-color: rgb(242, 55, 55);
+    border-radius: 5px;
+    padding: 2px;
+
+  }

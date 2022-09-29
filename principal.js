@@ -9,13 +9,19 @@ for(const item of productos){
                      <p>Precio: $ ${item.precio}.</p>
                      <p>id: ${item.id}.-</p>
                      <p>Stock: ${item.stock}.</p>
-                     <button id=agregar${item.id}>Agregar</button>`;
-    // console.log(contenedorProductos);                 
+                     <button id=agregar${item.id}>Agregar</button>`;                 
     contenedorProductos.append(div);
     const boton = document.getElementById(`agregar${item.id}`);
     boton.addEventListener('click', () => {
         agregaCarrito(item.id);
-        alert(`se agrego el producto ${item.producto}`);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `Se agrego el producto ${item.producto}`,
+            showConfirmButton: false,
+            timer: 1500
+          })
+        // alert(`se agrego el producto ${item.producto}`);
     })
     };
 
@@ -38,12 +44,31 @@ if(carritoArray.length > 0){
     carritoContenedor.append(div);
     const boton = document.getElementById(`eliminar${item.id}`);
     boton.addEventListener('click', () => {
-            let eliminar = document.getElementById(`carritoItem${item.id}`);
-            carritoContenedor.removeChild(eliminar );
-            const posicion = carritoArray.findIndex((element) => element.id == item.id);
-            carritoArray.splice(posicion, 1)    
-            localStorage.setItem('productos', JSON.stringify(carritoArray));
-            alert(`se elimino el producto ${item.producto} del carrito`);
+        Swal.fire({
+            title: 'Eliminar',
+            text: `¿Esta seguro de eliminar ${item.producto} del carrito?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar',
+            timer: 5000
+          }).then((result) => {
+            if (result.isConfirmed) {
+              let eliminar = document.getElementById(`carritoItem${item.id}`);
+              carritoContenedor.removeChild(eliminar );
+              const posicion = carritoArray.findIndex((element) => element.id == item.id);
+              carritoArray.splice(posicion, 1)    
+              localStorage.setItem('productos', JSON.stringify(carritoArray));
+              Swal.fire({
+                    title: 'Eliminado',
+                    text: `${item.producto} se elimino del carrito`,
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500  
+              })
+            }
+          })
         })
     })
 
