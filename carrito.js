@@ -9,12 +9,11 @@ function agregaCarrito(itemId) {
         carritoArray.forEach(object => {
             if(object.id == itemId){ 
                 boole = 1;
-                carritoArray.forEach(object =>{
+                carritoArray.forEach(object =>{ 
                     if (object.id === itemId){
                         let aux1 = parseInt(object.cantidad);
                         aux1++;
                         object.cantidad = aux1;
-                        // console.log(aux1);
                         let aux2 = document.getElementById(`cantidad${itemId}`);
                         aux2.innerHTML = `<p id="cantidad${itemId}" >Cantidad: ${aux1} </p>`;  
 
@@ -66,8 +65,6 @@ function agregaCarrito(itemId) {
                     timer: 1500
                 })
                 }
-                    console.log(carritoArray);
-                    console.log(productos);
               })
             
         })

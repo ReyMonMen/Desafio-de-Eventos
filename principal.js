@@ -1,28 +1,35 @@
 let contenedorProductos = document.getElementById("producto-contenedor");
+let productos = [];
+const traer = async () => {
+const respuesta = await fetch("data.json");
+productos = await respuesta.json();
 
 
 for(const item of productos){
-    const div = document.createElement("div");
-    div.classList.add("grid-item");
-    div.innerHTML = `<img src="${item.img}" alt="${item.descripcion}">
-                     <p>Producto: ${item.producto}.</p>
-                     <p>Precio: $ ${item.precio}.</p>
-                     <p>id: ${item.id}.-</p>
-                     <p>Stock: ${item.stock}.</p>
-                     <button id=agregar${item.id}>Agregar</button>`;                 
-    contenedorProductos.append(div);
-    const boton = document.getElementById(`agregar${item.id}`);
-    boton.addEventListener('click', () => {
-        agregaCarrito(item.id);
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: `Se agrego el producto ${item.producto}`,
-            showConfirmButton: false,
-            timer: 1500
-          })
-    })
-    };
+  const div = document.createElement("div");
+  div.classList.add("grid-item");
+  div.innerHTML = `<img src="${item.img}" alt="${item.descripcion}">
+                   <p>Producto: ${item.producto}.</p>
+                   <p>Precio: $ ${item.precio}.</p>
+                   <p>id: ${item.id}.-</p>
+                   <p>Stock: ${item.stock}.</p>
+                   <button id=agregar${item.id}>Agregar</button>`;                 
+  contenedorProductos.append(div);
+  const boton = document.getElementById(`agregar${item.id}`);
+  console.log(boton);
+  boton.addEventListener('click', () => {
+      agregaCarrito(item.id);
+      Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Se agrego el producto ${item.producto}`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+  })
+  };
+}
+traer();
 
 let carritoStorage = localStorage.getItem("productos");
 // console.log(carritoStorage);
@@ -72,7 +79,3 @@ if(carritoArray.length > 0){
     })
 
 }
-
-
-
-
